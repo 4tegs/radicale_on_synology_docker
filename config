@@ -1,0 +1,41 @@
+# -*- mode: conf -*-
+# vim:ft=cfg
+# ------------------------------------------------------------------------------
+# Config file for Radicale - A simple calendar server
+# All parameter to be found at
+# https://radicale.org/v3.html#simple-5-minute-setup
+# 
+# ..............................................................................
+# Date:  			25.12.2024 (Version 3)
+#
+# ..............................................................................
+[server]
+hosts = 0.0.0.0:5232
+max_connections = 20
+max_content_length = 100000000
+timeout = 30
+
+# ..............................................................................
+[encoding]
+request = utf-8
+stock = utf-8
+
+# ..............................................................................
+[auth]
+type = htpasswd
+htpasswd_filename = /etc/radicale/users
+htpasswd_encryption = md5
+delay = 10
+
+
+# ..............................................................................
+[storage]
+type = multifilesystem
+filesystem_folder = /etc/radicale/collections
+
+[web]
+type = internal
+
+[headers]
+# Additional HTTP headers
+#Access-Control-Allow-Origin = *
