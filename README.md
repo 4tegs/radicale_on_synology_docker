@@ -71,5 +71,62 @@ Let’s set up the radicale folder space for our container.
 
 ### Install configuration files
 From this repository movere the follow 4 files to **/volume1/docker/radicale**:
+* config
+* logging
+* rights
+* users
 
 ![docker image](images/add_docker_image_11.jpg)
+
+### Provide User and Password to use Radicale
+Radicale needs to be clear on access rights. The config file is set up in a way, that access is provided a htpasswd type of user / password management and cyphered with an MD5 algorithm (very strong). If you want to change that, consult the radicale help sites.
+
+To add your user and password:
+
+* cd /volume1/docker/radicale
+* **htpasswd -cmb users your-user1 password1** <br/>
+if you want to add another user:<br/>
+**htpasswd -mb users your-user2 password2**
+
+### Deploy container by creating a project
+DSM 7 provides a good way to create the container by creating a project. This way the maintenance of the container gets pretty smart.<br/>
+
+First use the **docker-compose.yml** provided and copy it to your docker folder, in our example **/volume1/docker/radical**
+
+Now start the container manager and select **project**.
+
+![docker image](images/02_radicale.jpg)
+
+Provide a project name, select the folder for your container. 
+
+![docker image](images/03_radicale.jpg)
+
+Use existing docker-compose.yml
+
+![docker image](images/04_radicale.jpg)
+
+See settings of your docker-compose.yml. 
+
+![docker image](images/05_radicale.jpg)
+
+Set some basics for Synology Web Station later.
+
+![docker image](images/06_radicale.jpg)
+
+
+![docker image](images/07_radicale.jpg)
+
+The container is created.
+
+![docker image](images/08_radicale.jpg)
+
+
+Finally you need to setup your WebPortal within Synology Web Station.<br/>
+Here is an example for setting up a DYNDNS way. You should have set up the DYNDNS for your radicale server already. 
+
+Port forwarding works a little different. See the Synology documentation.
+
+
+![docker image](images/09_radicale.jpg)
+
+Now you can call radicale either by your external address or by http://your-internal-ip:5232 (e.g. http://192.168.58.70:5232/)
