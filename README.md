@@ -22,7 +22,7 @@ Here's the official homepage: <a href="https://radicale.org/" title="radicale.or
 * Having Administrator Account access for DSM.
 * A registered Domain which forwards (e.g. via DynDNS) to your Router/Server (Synology DS) and/or a Subdomain with according CNAME entry.
 * On your Synology Docker is installed and running.
-* SSH can be enabled and you know how to operate on command line with rrot access.
+* SSH can be enabled and you know how to operate on command line with root access.
 
 ## Setting up the development area
 
@@ -40,13 +40,13 @@ The next step depends on what you want to achieve. If you simply want to use the
 ## Building the Docker image
 
 This section covers how to develop your own radicale image an push it to DockerHub. If you aren’t going to develop an own container [>jump this section<](#deploy-the-docker-container-in-your-synology)!
+
+
+SSH into your Synology: 
 * SSH into Synology
 * sudo -i
-* cd to your development area in your Synology.
-Based on previous steps, you should find a file named **Dockerfile**.<br/>
-In this example:
-    * cd /volume1/dock_dev/radicale
-    
+* cd to your development area in your Synology. In this example: **cd /volume1/dock_dev/radicale**
+
 * To build the image run command: **docker build -t 4tegs/radicale .** <br/>
 Don't forget the "." at the end of the line!
 * You should name your container based on your DockerHub ID ( 4tegs) and project name (radicale). If you don’t do so, you need to „re“tag you image later for the DockerHub push.
@@ -58,7 +58,7 @@ Have a look at Synology -> Docker, you should find the image there.
 * **docker push 4tegs/radicale:latest**
 
 ## Deploy the Docker Container in your Synology
-To deploy a Radical WebDav/CalDav Service throug a Docker container on Synology follow the next steps. The listed [prereqisites](#prereqisites) must be fullfilled.
+To deploy a Radical WebDav/CalDav Service throug a Docker container on Synology follow the next steps. The listed [prereqisites](#prerequisites) must be fullfilled.   
 
 ### The Data Area Folder
 When Docker was installed, Synology has set up a shared folder /volume1/docker. This folder can be used to host your containers configuration files and production data.
@@ -75,6 +75,7 @@ From this repository movere the follow 4 files to **/volume1/docker/radicale**:
 * logging
 * rights
 * users
+* in addition its a good idea to copy already now "docker-compose.yml"
 
 ![docker image](images/add_docker_image_11.jpg)
 
