@@ -70,7 +70,7 @@ Let’s set up the radicale folder space for our container.
 * command: **mkdir /volume1/docker/radicale**
 
 ### Install configuration files
-From this repository movere the follow 4 files to **/volume1/docker/radicale**:
+From this repository move the follow 4 files to **/volume1/docker/radicale**:
 * config
 * logging
 * rights
@@ -131,3 +131,7 @@ Port forwarding works a little different. See the Synology documentation.
 ![docker image](images/09_radicale.jpg)
 
 Now you can call radicale either by your external address or by http://your-internal-ip:5232 (e.g. http://192.168.58.70:5232/)
+
+## Docker Repository
+
+<a href="https://hub.docker.com/repository/docker/4tegs/radicale/general" title="radicale.org" target="_blank" rel="nofollow">Docker Hub - 4tegs/radicale</a>
